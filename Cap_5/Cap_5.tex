@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage[top=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{nota}{Nota}[section]
+\newtheorem{notaAMargine}{Nota a margine}[section]
+
+\title{\textbf{Modelli di variabili aleatorie}}
+\author{Daniele Falanga}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Variabili aleatorie di Bernoulli e binomiali}
+Le variabili aleatorie di Bernoulli e binomiali caratterizzano tutta quella classe
+di esperimenti il cui esito può essere solo "successo" o "fallimento"
+
+\begin{definition}[Bernoulli]
+    Una variabile aleatoria X si dice di Bernoulli se la sua funzione di massa
+    di probabilità è del tipo: 
+    \begin{align*}
+        P(X = 0) = & 1-p \\
+        P(X=1) = &  p \\
+    \end{align*}
+
+    La variabile X di Bernoulli può assumere solo valori 0 e 1. 
+    \newline
+    Il suo valore atteso è:
+    \[
+    E[X] = p    
+    \]
+\end{definition}
+
+Se invece si ripete l'esperimento \(n\) volte, indipendentemente dal risultato, 
+Si usa la variabile binomiale.
+
+\begin{definition}[binomiale]
+    La definizione alla base è analoga a quella di Bernoulli, con l'aggiunta dei parametri
+    \((n,p)\). 
+    \newline
+    La funzione di massa di probabilità è: 
+    \begin{align*}
+        P(X = i) = \binom{n}{i}p^i(1-p)^{n-i}, & & i = 0,1\dots,n
+    \end{align*}
+\end{definition}
+
+
+
+\end{document}

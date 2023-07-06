@@ -20,3 +20,27 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+Cap_1/Cap_1.aux
+Cap_1/Cap_1.fdb_latexmk
+Cap_1/Cap_1.fls
+Cap_1/Cap_1.log
+Cap_1/Cap_1.synctex.gz
+Esercizi/Foglio_2.aux
+Esercizi/Foglio_2.fdb_latexmk
+Esercizi/Foglio_2.fls
+Esercizi/Foglio_2.log
+Esercizi/Foglio_2.synctex.gz
+Cap_3/Cap_3.fdb_latexmk
+Cap_3/Cap_3.fls
+Cap_3/Cap_3.log
+Cap_3/Cap_3.synctex.gz
+Cap_4/Cap_4.aux
+Cap_4/Cap_4.fdb_latexmk
+Cap_4/Cap_4.fls
+Cap_4/Cap_4.log
+Cap_4/Cap_4.synctex.gz
+Cap_5/Cap_5.aux
+Cap_5/Cap_5.fdb_latexmk
+Cap_5/Cap_5.fls
+Cap_5/Cap_5.log
+Cap_5/Cap_5.synctex.gz

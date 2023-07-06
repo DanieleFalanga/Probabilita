@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+\usepackage[top=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{Nota}{Nota}[section]
+\newtheorem{notaAMargine}{Nota a margine}[section]
+
+\title{\textbf{Elementi di probabilità}}
+\author{Daniele Falanga}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Spazio degli esiti e degli eventi}
+
+\begin{definition}
+    Dato un esperimento di cui non si sa il risultato con certezza
+    si definisce spazio degli esiti, l'insieme di tutti i risultati
+    possibili. 
+    \[
+    S(\Omega)    
+    \]
+    I sotto insiemi dello spazio degli esiti si dicono eventi. 
+    Un evento E è un insieme i cui elementi sono esiti possibili.
+\end{definition}
+
+Due eventi E ed F godono delle proprietà degli insiemi: 
+\begin{itemize}
+    \item L'unione \(E \cup F \) è definita come l'insieme degli
+    esiti che stanno sia in E che in F, Perciò \(E \cup F \) si verifica, se almeno 
+    almeno uno tra E ed F si verifica. 
+    \item l'intersezione \( E \cap F\) è l'insieme formato dagli esiti
+    che stanno sia E che in F 
+\end{itemize}
+
+\section{Diagrammi di Venn e algebra degli eventi}
+I diagrammi di Venn forniscono una rappresentazione grafica dello spazio
+degli esiti e degli eventi. Lo spazio degli esiti è rappresentato 
+da un grande rettangolo, contenente gli eventi rappresentati, invece, da cerchi. 
+Nella logica degli insieme valgono le seguenti regole: 
+
+\begin{itemize}
+    \item \(E \cup F = F \cup E\)
+    \item \(E \cap F = F \cap E\)
+    \item \((E \cup F) \cup G = E \cup (F \cup G)\) \quad \((E \cup F) \cup G = E \cup (F \cup G)\) \quad Associativa
+    \item \((E \cup F) \cap G = (E \cap G) \cup (F \cap G) \) \quad \((E \cap F) \cup G = (E \cup G) \cap (F \cup G) \) \quad Distributiva
+\end{itemize}
+
+\newpage
+\section{Assiomi della probabilità}
+
+Si associa ad ogni evento E dello spazio degli esiti \(\Omega\)
+una probabilità che si denota con \(P(E)\). Le probabilità di ogni evento
+devono rispettare i seguenti {\bf{assiomi}}:
+\begin{enumerate}
+    \item \(0 \le P(E) \le 1\) \quad (Assioma 1)
+    \item \(P(\Omega) = 1\) \quad (Assioma 2)
+    \item Data una serie di eventi mutuamente esclusivi, tali per cui 
+    la loro intersezione è nulla. 
+    \[
+    P (\bigcup_{i = 1} ^n E_i) = \sum_{i=1}^n P(E_i) \quad n= 1,2,\dots,\infty \quad \text{(Assioma 3)}   
+    \]
+\end{enumerate}
+
+Dagli assiomi si deducono le seguenti proposizioni
+
+\begin{proposition}
+    Per ogni evento \(E \subseteq S\) vale la relazione.
+    \[P(E^c) = 1-P(E)\] 
+\end{proposition}
+
+\begin{proposition}
+Se E ed F sono due eventi qualsiasi, allora
+\[
+P(E \cup F) = P(E) + P(F) - P(E \cap F)    
+\]
+
+Dimostrazione sul libro a pagina 69
+\end{proposition}
+
+La proposizione 3.2 è da non confondere con quella degli insiemi. 
+Qui stiamo confrontando la probabilità degli eventi, non lo spazio degli
+eventi. 
+
+\section{Spazio degli esiti equiprobabili}
+
+Per tutta una serie di esperimenti si assume che tutti gli esiti
+abbiano la stessa probabilità. 
+La probabilità dell' evento in questo caso si scrive cosi: 
+\[
+P(E) = \frac{|E|}{|\Omega|} \Longrightarrow P(E) = \frac{\text{casi favorevoli}}{\text{casi totali}}   
+\]
+
+Quando bisogna calcolare il numero di permutazioni su un insieme di elementi
+devo fare il fattoriale: 
+\[
+n!    
+\]
+
+\subsection{il coefficente binomiale}
+Se si vuole determinare il numero di diversi gruppi di \(r\) oggetti scegliendoli
+da un insieme \(n\) si usa il coefficente binomiale:
+\[
+\frac{n!}{r!(n-r)!}    
+\]
+
+
+\newpage
+
+\section{Probabilità condizionata}
+
+È il caso in cui si vuole calcolare la probabilità di un evento F dopo essersi verificato l'evento E, e l'evento F, 
+dipende in un certo senso da da E.
+Come esempio può prendere la probabilità che dato il lancio consecutivo di due dadi, si vuole calcolare
+la probabilità che la somma dei numeri sia 8 quando il numero del primo dado è 3. 
+Il lancio del secondo dado dipende dal primo in questo caso. 
+Il formule si può scrivere: 
+\[
+P(F|E) = \frac{P(E \cap F)}{P(E)}     
+\]
+
+La spiegazione si rifa sempre a quella \(\frac{\text{casi favorevoli}}{\text{casi favorevoli}}\)
+perchè dopo aver calcolato la probabilità dell'evento E, si vuole calcolare la probabilità
+dell'evento F che sicuramente sta nell'intersezione con F, perchè sono dipendenti. E il numero di casi totali
+ora diventa quello di E, non più tutto \(\Omega\). 
+
+\section{Fattorizzazione di un evento e formula di Bayes}
+
+Siano E ed F due eventi qualsiasi. È possibile esprimerli come: 
+\[
+E = (E \cap F) \cup (E \cap F^c)    
+\]
+
+Siccome \((E \cap F)\) e \((E \cap F^c)\) sono eventi disgiunti, si ha per l'assioma 3:
+\begin{align*}
+    P(E) = P((E \cap F)) + P((E \cap F^c)) =  \\
+P(E|F)P(F) + P(E|F^c)P(F^c) = \\ 
+P(E|F)P(F) + P(E|F^c)[1-P(F)]    
+\end{align*}
+
+Questa espressione ci permette calcolare la probabilità di E a priori che 
+F si verifichi o meno. È un formula molto utile quando abbiamo conoscenze
+parziali sul sistema e vogliamo calcolare la probabilità di un evento tenendo 
+conto dei fattori che possono influenzarlo.
+
+
+\newpage
+\subparagraph*{Teorema della probabilità totale} 
+
+Sia \(\Omega\) lo spazio campionario di un esperimento, e \((E_1,E_2,\dots, E_n)\), 
+la famiglia degli esiti che compongono \(\Omega\). Inoltre gli eventi E devono essere:
+\begin{itemize}
+    \item Tutti diversi dall'evento impossibile, e quindi nessuno di essi deve essere vuoto
+    \item Devono essere a due e due disgiunti, quindi incompatibili tra di loro
+    \item E la loro unione deve formare \(\Omega\)
+\end{itemize} 
+
+Fatte queste premesse, si enuncia il teorema
+\begin{theorem}[Teorema della probabilità totale]
+    La probabilità dell'evento \(F\) è uguale alla sommatoria tra il prodotto
+    della probabilità dell'evento E i-esimo e la probabilità condizionata di F, rispetto l'evento
+    E i-esimo. 
+    \[
+    P(F) = \sum_{i=1}^{n} P(E_i)P(F|E_i)   
+    \]
+\end{theorem}
+
+
+\subparagraph*{Formula di Bayes} 
+Permette di calcolare la probabilità condizionata di un evento, dato l'occorso
+di un altro evento correlato. 
+\[
+    P(A|B) = \frac{P(B|A) P(A)}{P(B)}     
+\]
+
+la formula di Bayes ci permette di calcolare la probabilità di un evento A, 
+sapendo che si è verificato l'evento B. Si basa sull'idea di invertire la condizionalità delle probabilità: partiamo dalla conoscenza di \(P(B|A)\) e utilizziamo le probabilità marginali P(A) e P(B) per ottenere la probabilità inversa \(P(A|B)\)
+
+
+\newpage
+\section{Eventi Indipendendenti}
+Due eventi si dicono Indipendendenti se vale la seguente espressione: 
+\[
+P(E \cap F) = P(E)P(F)    
+\]
+
+3 eventi, E,F e G si dicono Indipendendenti se valgono tutte e quattro le seguenti
+equazioni: 
+\begin{itemize}
+    \item \(P(E \cap F \cap G) = P(E)P(F)P(G)\)
+    \item \(P(E \cap F) = P(E)P(F)\)
+    \item \(P(E \cap G) = P(E)P(G)\)
+    \item \(P(F \cap G) = P(F)P(G)\)
+\end{itemize}
+
+
+\end{document}
