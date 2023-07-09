@@ -41,7 +41,13 @@ di esperimenti il cui esito può essere solo "successo" o "fallimento"
 \end{definition}
 
 Se invece si ripete l'esperimento \(n\) volte, indipendentemente dal risultato, 
-Si usa la variabile binomiale.
+Si usa la variabile binomiale e deve rispettare i seguenti requisiti:
+\begin{itemize}
+    \item Il risultato dell' evento può essere solo positivo o negativo
+    \item ciascun evento è indipendente dagli altri
+    \item Il processo/variabile può assumere un determinato e fissato numero di valori
+    \item La probabilità di di successo o fallimento di un evento è costante
+\end{itemize}
 
 \begin{definition}[binomiale]
     La definizione alla base è analoga a quella di Bernoulli, con l'aggiunta dei parametri
@@ -50,6 +56,34 @@ Si usa la variabile binomiale.
     La funzione di massa di probabilità è: 
     \begin{align*}
         P(X = i) = \binom{n}{i}p^i(1-p)^{n-i}, & & i = 0,1\dots,n
+    \end{align*}
+\end{definition}
+
+Ogni successione con \(i\) successi e \(n-i\) insuccessi ha probabilità \(p^i(1-p)^{n-i}\), mentre il numero
+di queste successioni, pari al numero di combinazioni in cui può esssere svolto l'esperimento, 
+è dato dal cofficente binomiale.
+
+\newpage
+Il valore atteso di una binomiale:
+\[
+E[X] = np    
+\]
+
+La Varianza:
+\[
+Var(X) = np(1-p)    
+\]
+
+\section{Variabili aleatorie di Poisson}
+La distribuzione di Poisson è una distribuzione discreta che esprime la probabilità
+che per il numero di eventi che si verificano successivamente ed indipendentemente in un 
+dato intervallo di tempo, sapendo che mediamente se ne verificano un numero \(\lambda\) a volte 
+definito negli esercizi come il valore atteso.
+
+\begin{definition}
+    La distribuzione di Poisson è data da:
+    \begin{align*}
+        P(X=i) = \frac{\lambda^i}{i!}e^{-\lambda}, && \quad i=0,1,2,\dots
     \end{align*}
 \end{definition}
 
