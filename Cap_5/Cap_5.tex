@@ -74,6 +74,18 @@ La Varianza:
 Var(X) = np(1-p)    
 \]
 
+\subsection{Distribuzioni multinomiali}
+
+La distribuzione multinomiale è una generalizzazione della distribuzione binomiale, dove si hanno piu gruppi di esperimenti.
+Un esempio è l'estrazione con reinserimento di tot palline (di 3 colori) da un urna. 
+
+\[
+P(n_1,\dots,n_s) = \binom{n}{n_1,\dots,n_s} = \prod_i p_i^{n_i}   
+\]
+
+Dove il vettore \(n_1,\dots,n_s\) corrisponde al numero di successi dell'esperimento s-esimo. 
+
+\newpage
 \section{Variabili aleatorie di Poisson}
 La distribuzione di Poisson è una distribuzione discreta che esprime la probabilità
 che per il numero di eventi che si verificano successivamente ed indipendentemente in un 
@@ -87,6 +99,105 @@ definito negli esercizi come il valore atteso.
     \end{align*}
 \end{definition}
 
+Il valore atteso di una variabile di Poisson:
+\[
+E[X] =\lambda    
+\]
 
+la Varianza:
+\[
+Var[Y] = \lambda    
+\]
 
+\subsection{Variabile di Poisson come limite di binomiali}
+La variabile di Poisson può essere usata come limite di binomiali quando \(n\)
+è molto grande e \(p\) molto piccolo. Siccome \(\lambda\) è il valore medio, della variabile di Poisson, 
+posso porre che \(\lambda = np\) dove \(np\) è il valore atteso per una binomiale. Allora:
+\begin{align*}
+    &P(X=i) = \frac{n!}{(n-i)!i!} \left( \frac{\lambda}{n} \right)^i \left( 1-\frac{\lambda}{n} \right)^{n-i} =\\
+    &P(X=i) = \frac{n!}{(n-i)!n^i}\cdot  \frac{\lambda^i}{i!} \cdot \frac{(1-\lambda/n)^n}{(1-\lambda/n)^i} = 
+\end{align*}
+
+Con le supposizioni di prima valgono le seguenti approssimazioni:
+\begin{align*}
+    \left(1-\frac{\lambda}{n}\right)^n \approx e^{-\lambda} & & \frac{n!}{(n-i)!n^i} \approx 1 & & \left(1-\frac{\lambda}{n}\right)^i \approx 1
+\end{align*}
+
+e quindi: 
+\[
+P(X=i) \approx \frac{\lambda^i}{i!}e^{-\lambda}    
+\]
+\section{Variabile Ipergeometrica}
+
+Una scatola contiene N batterie accettabili e M difettose. Si estraggono senza rimessa e in maniera casuale
+\(n\) batterie, dando pari probabilità a ciascuno degli \(\binom{N+M}{n}\) sottoinsiemi possibili. 
+Se denotiamo con X il numero di batterie accettabili contenute nel campione estratto, non è difficile convincersi che:
+\[
+P(X = i) = \frac{\binom{N}{i} \binom{M}{n-i}}{\binom{N+M}{n}}    
+\]
+
+dove:
+\begin{itemize}
+    \item \(\binom{N+M}{n}\) :numero di possibili estrazioni di \(n\) da N+M
+    \item \(\binom{N}{i}\) è il numero di possibili estrazioni di \(i\) elementi di N
+    \item \(\binom{M}{n-i}\) è il numero di possibili estrazioni dei restanti \(n-i\) elementi tra gli \(M\)
+\end{itemize}
+
+Il valore atteso:
+\[
+E[X] = n\frac{N}{N+M}    
+\]
+
+\section{Variabile Geometrica}
+
+È una distribuzione di probabilità discreta sui numeri naturali, senza lo zero. \newline
+È la probabilità che un evento si verifichi al \(k-esimo\) tentativo dopo \(k-1\) fallimenti. 
+\[
+P(X=k) = p(1-p)^{k-1}    
+\]
+
+Il valore atteso:
+\[
+E[X] = \frac{1}{p}    
+\]
+
+La varianza:
+\[
+Var[X] = \frac{q}{p^2}    
+\]
+
+la funzione di ripartizione:
+\[
+P[X \le k] = 1 - P[X \ge k+1] = 1-q^k    
+\]
+
+\textbf{Assenza di memoria} \newline
+La distribuzione geometrica è una delle due variabili aleatorie con assenza di memoria,e l'unica discreta, cioè non ricorda i risultati
+precedenti. 
+Questa proprietà afferma che la probabilità condizionata di una variabile aleatoria superi un certo valore, 
+dato che sia già passato un certo lasso di tempo, non dipende da quanti eventi sono gia trascorsi. Nel caso 
+delle variabili geometriche:
+\[
+P(T = m +n | T > m) = P(T=n)    
+\]
+
+Dato che si sono gia verificati m eventi, la probabilità che \(T = m+n \) è uguale a \(P(T=n)\) perchè non dipende da nulla. 
+
+\subsection{Distribuzione di Pascal e distribuzione binomiale negativa}
+
+La distribuzione di Pascal è una distribuzione di probabilità discreta con due parametri
+\(n,p\) che descrive il numero di fallimenti precedenti il successo n-esimo in processo
+di Bernoulli. 
+
+La probabilità che si verifichino esattamente k fallimenti prima di ottenere un totale di n successi
+è data dalla probabilità di ottenere un successo nella prova numero k+n e ti ottenere
+esattamente k fallimenti e n-1 nelle prove precedenti:
+\[
+P(k) = \binom{k+n-1}{k} p^nq^k   
+\]
+
+\textbf{Distribuzione binomiale negativa} \newline
+\[
+P(k) = \binom{-n}{k}p^n(-q)^k    
+\]
 \end{document}
