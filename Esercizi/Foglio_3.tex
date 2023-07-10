@@ -21,12 +21,50 @@
 \maketitle
 
 \subsection*{Esercizio 1}
-
+\begin{enumerate}
+    \item se A e B sono disgiunti, vuol dire che la sua intersezione è uguale a 0
+    utilizzando la formula:    
+    \begin{align*}
+        &P(A \cup B) = P(A) + P(B) - P(A \cap B) = \\
+        &0.5 = 0.3 + P(B) = \\
+        &P(B) = 0.2
+    \end{align*}
+    \item se A e B sono indipendenti, vuol dire che la loro intersezione vale \(P(A \cap B) = P(A)*P(B)\):
+    \begin{align*}
+        &P(A \cup B) = P(A) + P(B) - P(A \cap B) =  \\
+        &P(A \cup B) = P(A) + P(B) - [P(A)P(B)] = \\ 
+        &P(A \cup B) = P(B)[1-P(A)] + P(A) = \\
+        &0.2 = P(B)[0.7] = \\
+        &P(B) = 0.28
+    \end{align*}        
+    \item Se A è un sottoinsieme di B, la sua probabilità è inclusa in quella di B, e la loro unione
+    restituisce quella di B:
+    \begin{align*}
+        &P(A \cup B) = P(B) = \\
+        &P(B) = 0.5 
+    \end{align*}
+\end{enumerate}
 
 \subsection*{Esercizio 2}
 
+Se A,B e C sono indipendenti, allora ciascuno di essi risulta indipendente dagli altri 2:
+\[
+P[A \cap (B \cup C)] = P(A)P(B \cup C) \quad \text{Pag 87}    
+\]
+Inoltre, per la proposizione 3.8.2:
+\begin{align*}
+    &P(A^c \cap F) = P(A^c)P(F) \\
+    &P(F) = P(B \cup C)    
+\end{align*}
 
-
+\newpage
+In questo modo abbiamo dimostrato che \(A^c\) risulta indipendente dagli B e da C.
+\newline
+Per il \textbf{punto 2} dobbiamo dimostrare che \(B^c\) sia indipendente da \(A^c\) e da \(C\), ma siccome
+abbiamo dimostrato prima che \(A^c\) e \(C\) sono indipendenti, al dimostrazione risulta analoga a prima, dimostrando quindi,
+che \(B^c\) risulta indipendente dagli altri 2. 
+Per il \textbf{punto 3}, dobbiamo dimostrare che \(C^c\) risulti indipendente dagli altri due, siccome per
+\(B^c\) e \(A^c\) abbiamo verificato essere indipendenti, la dimostrazione risulta analoga.
 \subsection*{Esercizio 3}
 \subsubsection*{Punto a}
 
