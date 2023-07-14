@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[top=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{nota}{Nota}[section]
+\newtheorem{notaAMargine}{Nota a margine}[section]
+
+\title{\textbf{Foglio 6}}
+\author{Daniele Falanga}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection*{Esercizio 1}
+
+\subsection*{Esercizio 2}
+
+Dati \(N = 3\) transistor rotti e \(B = 7\) e transistori buoni.
+Utilizzando il valore atteso della distribuzione ipergeometrica:
+\[
+E[X] = n \cdot \frac{3}{10} = 1 \cdot \frac{3}{10}    
+\] 
+
+\subsection*{Esercizio 3}
+
+\subsection*{Esercizio 4}
+Utilizzo una distribuzione geometrica:
+\begin{enumerate}
+    \item La probabilità richiesta:
+    \[
+    P(T = 3, X = 5) = \frac{1}{6}\left( \frac{5}{6}\right)^2 = 0.11   
+    \]
+    \item La distribuzione: 
+    \begin{align*}
+        &P(T=1, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^0 = 0.16 \\
+        &P(T=2, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^1 = 0.13 \\
+        &P(T=3, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^2 = 0.14 \\
+    \end{align*}
+    \item La distribuzione di X:
+    \[
+        P(T = 3, X=1,2,3,4) = 0.11
+    \]
+    \item Dal punto 2 del problema si nota come la probabilità che si verifichi un successo dipende dal numero di lanci effettuati.
+    Quindi le due variabili sono dipendenti. 
+\end{enumerate}
+\subsection*{Esercizio 5}
+Utilizzo 6 variabili aleatorie, \(X_i\) con \(i = 1,2,3\dots, 6\) per rappresentare il lancio i-esimo:
+\begin{align*}
+    &P(X = 1) = \frac{6}{6} \quad \text{Ho tutte le facce disponibili} \\
+    &P(X = 2) = \frac{5}{6} \quad \text{Ne ho una di meno}\\
+    &P(X = 3) = \frac{4}{6} quad \text{e cosi via}\\
+    &P(X = 4) = \frac{3}{6} \\
+    &P(X = 5) = \frac{2}{6}\\
+    &P(X = 6) = \frac{1}{6}\\
+\end{align*}
+
+Essendo ogni lancio indipendente uso la variabile geometrica 
+\subsection*{Esercizio 6}
+
+
+\end{document}

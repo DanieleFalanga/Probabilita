@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\usepackage[top=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{nota}{Nota}[section]
+\newtheorem{notaAMargine}{Nota a margine}[section]
+
+\title{\textbf{Foglio 4}}
+\author{Daniele Falanga}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection*{Esercizio 1}
+\begin{enumerate}
+    \item Denominando con F l'evento che il prodotto sia difettoso, utilizzando il teorema della probabilità
+    totale:    
+    \begin{align*}
+        &P(F) = P(A)\cdot P(F|A) + P(B)\cdot P(F|B) + P(C)\cdot P(F|C) = \\
+        &P(F) = 0.40\cdot 0.02 + 0.10 \cdot 0.03 + 0.50 \cdot 0.04 = \\
+        &P(F) = 0.031 = 3.1 \%
+    \end{align*}
+    \item Utilizzando il teorema di Bayes per tutte e 3 le macchine:
+    \begin{align*}
+        &P(A|F) = \frac{P(A)P(F|A)}{P(F)} = (0.40 \cdot 0.02) = 0.031 = 0.25\\
+        &P(B|F) = \frac{P(B)P(F|B)}{P(F)} = (0.10 \cdot 0.03) = 0.031 = 0.09\\
+        &P(C|F) = \frac{P(C)P(F|C)}{P(F)} = (0.50 \cdot 0.04) = 0.031 = 0.64\\
+    \end{align*} 
+\end{enumerate}
+
+\newpage
+\subsection*{Esercizio 2}
+
+Il testo fornisce i seguenti parametri:
+\begin{itemize}
+    \item \(T_1\) = trasmesso 1
+    \item \(T_0\) = trasmesso 0
+    \item \(R_1\) = ricevuto 1
+    \item \(R_0\) = ricevuto 0
+    \item \(P(T_1)\) = 0.55
+    \item \(P(T_0)\) = 0.45
+    \item \(P(R_1|T_1)\) = 0.91
+    \item \(P(R_0|T_0)\) = 0.94
+\end{itemize}
+\begin{enumerate}
+    \item Teorema della probabilità totale:
+    \begin{align*}
+        &P(R_1) = P(T_1)\cdot P(R_1|T_1)+P(T_0)P(R_1^c|T_0) = \\
+        &(0.55 \cdot 0.91) + (0.45 \cdot 0.09) = 0.54 \\
+    \end{align*}
+    \item uguale:
+    \begin{align*}
+        &P(R_0) = P(T_0)\cdot P(R_0|T_0)+P(T_1)P(R_0^c|T_1) = \\
+        &(0.45 \cdot 0.94) + (0.55 \cdot 0.06) = 0.45 \\
+    \end{align*}
+    \item Formula di Bayes:
+    \begin{align*}
+        P(T_1|R_1) = \frac{P(R_1) \cdot P(R_1|T_1)}{P(T_1)} = 0.89 \\
+    \end{align*}
+    \item Formula di Bayes:
+    \begin{align*}
+        P(T_0|R_0) = \frac{P(R_0) \cdot P(R_0|T_0)}{P(T_0)} = 0.94 \\
+    \end{align*}
+    \item La probabilità dell'errore di trasmissione:
+    \begin{align*}
+        &P(E) = P(T_1)\cdot P(R_0|T_1)+P(T_0)\cdot P(R_1|T_0) = \\
+        &(0.55 \cdot 0.06) + (0.45 \cdot 0.09) = 
+    \end{align*}
+\end{enumerate}
+\subsection*{Esercizio 3}
+\begin{enumerate}
+    \item Utilizzo il modello di variabile aleatoria geometrica:
+    \[
+        P(X=5) = \left(\frac{18}{37}\right)\left(1-\frac{19}{37}\right)^{4}
+    \]
+    \item Variabile binomiale:
+    \begin{align*}
+        &P(Y \ge 2) = 1 - P(Y < 2) \rightarrow \\
+        &P(Y<2) = p_0+p_1 = \binom{10}{0}\left(\frac{18}{37}\right)^0\left(\frac{19}{37}\right)^{10} + \binom{10}{1}\left(\frac{18}{37}\right)^1\left(\frac{19}{37}\right)^9\\
+    \end{align*}
+    \item Ipotizzando di vincere 2 euro a partita:
+    \[
+    P(Z = 6) = \binom{10}{6}\left(\frac{18}{37}\right)^6\left(\frac{19}{37}\right)^4    
+    \]
+\end{enumerate}
+
+\subsection*{Esercizio 4}
+\begin{enumerate}
+    \item La formula in questione rappresenta \(n\) estrazioni da un'urna con reinserimento,
+    contenente \(N\) palline nere e \(B\) bianche. Al primo membro le estrazioni sono divise:
+    \begin{align*}
+        &\binom{B}{k} \rightarrow \text{numero di palline bianche con k-estrazioni} \\
+        &\binom{N}{n-k} \rightarrow \text{numero di palline nere su n-k estrazioni}
+    \end{align*}
+    Al secondo membro le estrazioni sono unite
+    \item La probabilità richiesta può essere calcolata tramite distribuzione binomiale.
+    Denoto con T il numero di teste dei primi \(n\) lanci
+    \[
+    P(X=T) = \binom{n}{T} \left( \frac{1}{2} \right)^T \left( \frac{1}{2} \right)^{n-T}  
+    \]       
+\end{enumerate}
+
+\subsection*{Esercizio 5}
+Denotando con \(p_1 = 1/2,p_2 = 0,p_3 = 1\) le probabilità che esca testa testa al lancio della moneta:
+\begin{enumerate}
+    \item Avendo 6 casi totale e 3 teste:
+    \[
+    P(T) = \frac{6}{3} = \frac{1}{2}    
+    \]
+    \item Al secondo lancio:
+    \[
+    P(C) = \frac{1}{4}    
+    \]
+    \item al terzo lancio:
+    \[
+    P(T) = \frac{3}{4}    
+    \]
+\end{enumerate}
+\subsection*{Esercizio 6}
+
+
+\end{document}

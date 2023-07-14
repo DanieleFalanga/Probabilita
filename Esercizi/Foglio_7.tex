@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage[top=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{nota}{Nota}[section]
+\newtheorem{notaAMargine}{Nota a margine}[section]
+
+\title{\textbf{Foglio 7}}
+\author{Daniele Falanga}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection*{Esercizio 1}
+
+\begin{enumerate}
+    \item La distribuzione del tempo di rottura del circuito in serie è dato dal componente che si rompe per primo:
+    \[
+    T_{ser} = min(T_1,\dots,T_k)    
+    \]
+    \item La distribuzione del tempo di rottura del circuito è dato dalla somma di tutti i componenti:
+    \[
+    T_{par} = \sum_{i}^{k}T_i    
+    \]
+\end{enumerate}
+
+\subsection*{Esercizio 2}
+Assumendo che su una popolazione di cento persone, in media \(\lambda = 2\), sono mancini, per calcolare la probabilità che almeno 3 siano mancini:
+
+\begin{align*}
+    &P(X \ge 3) = 1 - (P(X = 0) + P(X = 1) + P(X = 2)) = \\    
+    &P(X \ge 3) = 1 - (\frac{2^0}{1}e^{-2} + \frac{2}{1}e^{-2} + \frac{2^2}{2}e^{-2}) = \\
+    &P(X \ge 3) = 1-5e^{-2} = 0.32 = 32\%
+\end{align*}  
+
+
+\subsection*{Esercizio 3}
+
+
+
+\subsection*{Esercizio 4}
+
+\subsection*{Esercizio 5}
+Il processo in questione può essere descritto da una variabile geometrica, dove non teniamo conto della la probabilità 
+che il primo successo (o evento in generale) richieda l'esecuzione di k prove indipendenti, bensi che il primo fallimento richieda l'esecuzione
+di k prove indipendenti. Nel processo in questione però si tratta del lancio della moneta, quindi la probabilità di successo e di fallimento,
+sono analoghe, quindi la distribuzione rimane la medesima:
+\begin{enumerate}
+    \item La distribuzione:
+    \[
+    P(X = k) = p(1-p)^k    
+    \]
+    \item Il valore atteso:
+    \[
+    E[X] = \frac{1}{p} = 2    
+    \]
+    \item La varianza:
+    \[
+    Var(X) = \frac{q}{p^2} = 6     
+    \]
+\end{enumerate}
+
+\subsection*{Esercizio 6}
+
+
+
+\end{document}
