@@ -57,7 +57,7 @@ Utilizzo 6 variabili aleatorie, \(X_i\) con \(i = 1,2,3\dots, 6\) per rappresent
 \begin{align*}
     &P(X = 1) = \frac{6}{6} \quad \text{Ho tutte le facce disponibili} \\
     &P(X = 2) = \frac{5}{6} \quad \text{Ne ho una di meno}\\
-    &P(X = 3) = \frac{4}{6} quad \text{e cosi via}\\
+    &P(X = 3) = \frac{4}{6} \quad \text{e cosi via}\\
     &P(X = 4) = \frac{3}{6} \\
     &P(X = 5) = \frac{2}{6}\\
     &P(X = 6) = \frac{1}{6}\\
@@ -66,5 +66,11 @@ Utilizzo 6 variabili aleatorie, \(X_i\) con \(i = 1,2,3\dots, 6\) per rappresent
 Essendo ogni lancio indipendente uso la variabile geometrica 
 \subsection*{Esercizio 6}
 
+\begin{align}
+    &E[X] = \sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i) \cdot \sum_{i=1}^{n} g(i)) \\
+    &E[X^2] = \sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i)^2 \cdot \sum_{i=1}^{n} g(i)^2) \\    
+    &E[X]^2 = (\sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i) \cdot \sum_{i=1}^{n} g(i)))^2 \\
+    &Var(X) = \sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i)^2 \cdot \sum_{i=1}^{n} g(i)^2) - (\sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i) \cdot \sum_{i=1}^{n} g(i)))^2 
+\end{align}
 
 \end{document}

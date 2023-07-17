@@ -42,12 +42,44 @@ Assumendo che su una popolazione di cento persone, in media \(\lambda = 2\), son
     &P(X \ge 3) = 1-5e^{-2} = 0.32 = 32\%
 \end{align*}  
 
-
+\newpage
 \subsection*{Esercizio 3}
 
+Si utilizza la formula:
+\begin{align*}
+    &P(A|B) = \frac{P(A \cap B)}{P(B)} = \\
+    &P(A \cap B) = P(A|B){P(B)}
+\end{align*}
 
+Sostituendo in questo modo:
+\begin{align*}
+    \begin{cases}
+        P(A \cap B) = P(Y=y, Z=z) \\
+        P(A|B) = P(Y=y|X = x+z) \\
+        P(B) = P(X = x+z)
+    \end{cases}        
+\end{align*}
+Si ottiene:
+\begin{align*}
+    &P(Y=y, Z=z) = P(Y=y|X = x+z)\cdot P(X = x+z) = \\
+    &\frac{X^{y+z}}{(y+z)!}e^{-x}\cdot \binom{y+z}{y}p^y(1-p)^z =\\
+    &e^{-x}\frac{X{y+z}}{(y+z)!}\cdot\frac{(y+z)!}{y!z!}p^y(1-p)^z =\\
+    &e^{-Xp-(1-p)}\frac{X^y}{y!}p^y\frac{X^z}{z!}(1-p)^z = \\
+    &\underbrace{e^{-Xp}\frac{(Xp)^y}{y!}}_{Y \approx Poiss(Xp)}\cdot \underbrace{e^{X(1-p)}\frac{(X(1-p))^z}{z!}}_{Y \approx Poiss(X(1-p))}
+\end{align*}
+
+L'intersezione di due eventi indipendenti è la loro moltiplicazione e quindi, i due eventi sono indipendenti.
 
 \subsection*{Esercizio 4}
+
+Scrivendo le variabili in questo modo:
+\begin{itemize}
+    \item X = numero medio lanci effettuati 
+    \item Y = numero di teste ottenute
+    \item Z = numero di croci ottenute 
+\end{itemize}
+
+Modellando come l'esercizio 3 si risolve in modo analogo
 
 \subsection*{Esercizio 5}
 Il processo in questione può essere descritto da una variabile geometrica, dove non teniamo conto della la probabilità 
@@ -70,7 +102,5 @@ sono analoghe, quindi la distribuzione rimane la medesima:
 \end{enumerate}
 
 \subsection*{Esercizio 6}
-
-
 
 \end{document}
