@@ -44,32 +44,47 @@ Assumendo che su una popolazione di cento persone, in media \(\lambda = 2\), son
 
 \newpage
 \subsection*{Esercizio 3}
+Date le seguenti variabili aleatorie:
+\begin{itemize}
+    \item Y = y numero di mail spam 
+    \item Z = z numero di mail non spam
+    \item X = y+z numero di mail totale in arrivo  
+\end{itemize}
 
-Si utilizza la formula:
+La funzione di massa di probabilità congiunta:
 \begin{align*}
-    &P(A|B) = \frac{P(A \cap B)}{P(B)} = \\
-    &P(A \cap B) = P(A|B){P(B)}
+    &P(Y=y, Z=z) = P(Y=y, X = y+z) \\
+    &P(Y=y, X = y+z) = P(Y=y|X = y+z)\cdot P(X) \\    
 \end{align*}
 
-Sostituendo in questo modo:
+Modello le due probabilità in questo modo:
+\begin{itemize}
+    \item \(P(Y,y|X = y+z) = \binom{y+z}{y}\cdot p^y \cdot (1-p)^{y-z} \) : numero di modi possibili di scegliere y mail dalle y+z in arrivo per le rispettive probabilità
+    \item \(P(X = y+z) = \frac{\lambda^{y+z}}{(y+z)!} e^{\lambda}\)
+\end{itemize}
+
+Sostituendo:
 \begin{align*}
-    \begin{cases}
-        P(A \cap B) = P(Y=y, Z=z) \\
-        P(A|B) = P(Y=y|X = x+z) \\
-        P(B) = P(X = x+z)
-    \end{cases}        
-\end{align*}
-Si ottiene:
-\begin{align*}
-    &P(Y=y, Z=z) = P(Y=y|X = x+z)\cdot P(X = x+z) = \\
-    &\frac{X^{y+z}}{(y+z)!}e^{-x}\cdot \binom{y+z}{y}p^y(1-p)^z =\\
-    &e^{-x}\frac{X{y+z}}{(y+z)!}\cdot\frac{(y+z)!}{y!z!}p^y(1-p)^z =\\
-    &e^{-Xp-(1-p)}\frac{X^y}{y!}p^y\frac{X^z}{z!}(1-p)^z = \\
-    &\underbrace{e^{-Xp}\frac{(Xp)^y}{y!}}_{Y \approx Poiss(Xp)}\cdot \underbrace{e^{X(1-p)}\frac{(X(1-p))^z}{z!}}_{Y \approx Poiss(X(1-p))}
+    &P(Y=y, X = y+z) = P(Y=y|X = y+z)\cdot P(X) = \\
+    &\binom{y+z}{y}\cdot p^y \cdot (1-p)^{y-z} \cdot \frac{\lambda^{y+z}}{(y+z)!} e^{\lambda} = \\
+    &\frac{(y+z)!}{y!z!}p^y(1-p)^z \cdot \frac{\lambda^y \lambda^z}{(y+z)!} e^{\lambda p (1-p)} = \\
+    &\frac{(\lambda p)^y}{y!}e^{-\lambda p} \cdot \frac{(\lambda (1-p))^z}{z!}e^{-\lambda (1-p)} \\        
 \end{align*}
 
-L'intersezione di due eventi indipendenti è la loro moltiplicazione e quindi, i due eventi sono indipendenti.
+Le distribuzioni marginali:
+\begin{align*}
+    &P(N_1 = y) = \sum_{z=0}^{\infty} P(P(Y=y, X = y+z)) = \\
+    &\frac{(\lambda p)^y}{y!}e^{-\lambda p} \sum_{z=0}^{\infty}\frac{(\lambda (1-p))^z}{z!}e^{-\lambda (1-p)} = \\
+    &\frac{(\lambda p)^y}{y!}e^{-\lambda p} \quad \text{La sommatoria è funzione di massa di una Poisson, quindi uguale ad 1}
+\end{align*}
+Analogamente:
+\begin{align*}
+    &P(N_2 = z) = \sum_{y=0}^{\infty} P(P(Y=y, X = y+z)) = \\
+    &\frac{(\lambda (1-p))^z}{z!}e^{-\lambda (1-p)} \sum_{y=0}^{\infty} = \frac{(\lambda p)^y}{y!}e^{-\lambda p}\\
+    &\frac{(\lambda (1-p))^z}{z!}e^{-\lambda (1-p)} 
+\end{align*}
 
+Esendo le marginali, il prodotto delle congiunte, le variabili sono indipendenti
 \subsection*{Esercizio 4}
 
 Scrivendo le variabili in questo modo:

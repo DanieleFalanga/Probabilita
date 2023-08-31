@@ -21,37 +21,91 @@
 \maketitle
 
 \subsection*{Esercizio 1}
-
+Dimostrazione a pagina 170
 \subsection*{Esercizio 2}
 
-Dati \(N = 3\) transistor rotti e \(B = 7\) e transistori buoni.
-Utilizzando il valore atteso della distribuzione ipergeometrica:
+Calcolo le probabilità singole, tramite il principio di enumerazione. Denotando con \(X_i\), 
+il probabilità che esca un transistor rotto al lancio k-esimo:
+\begin{align*}
+    &P(X=1) = \frac{3}{10} \\
+    &P(X=2) = \frac{7}{10} \cdot \frac{6}{9} \cdot \frac{3}{9} \\
+    &P(X=3) = \frac{7}{10} \cdot \frac{6}{9} \cdot \frac{5}{8} \cdot \frac{3}{8} \\
+    &\vdots \\
+\end{align*}
+e cosi via fino ad \(P(X = 7)\) dove la probabilità è la stessa fino a 10 visto che stiamo pescando
+sicuramente un transistor rotto. \newline
+Calcolata la distribuzione di probabilità, si usa la formula del valore atteso: 
 \[
-E[X] = n \cdot \frac{3}{10} = 1 \cdot \frac{3}{10}    
-\] 
+E[X] = \sum_{1}^{10}i \cdot P(X = i)    
+\]
 
+\newpage
 \subsection*{Esercizio 3}
+{\bf{Punto 1}}: \newline
+Siano X e Y due variabili aleatorie. Se X è una variabile aleatoria certa, 
+ovvero \(X = c\) per un qualche \(c \in R\), allora la sua funzione di distribuzione di probabilità è:
+\[
+P(X = c) = 1  
+\]
+La funzione di distribuzione congiunta di X e Y è:
+\[
+P(X = c, Y = y) = P(X = c) P(Y = y | X = c)    
+\]
+Poiché X è certa, la probabilità che X assuma il valore c è 1. Inoltre, la probabilità che Y assuma 
+il valore y dato che X ha assunto il valore c è la stessa che Y assuma il valore y indipendentemente dal valore di X. Pertanto, abbiamo:
+\[
+P(X = c, Y = y) = 1 \cdot P(Y = y)    
+\]
+Questo significa che la distribuzione di probabilità di Y è la stessa sia che X 
+sia certa sia che X assuma un valore diverso da c. Pertanto, X e Y sono indipendenti.
+
+{\bf{Punto 2}}: \newline
+Essendo binarie si ha:
+\begin{align*}
+    X = 
+    \begin{cases}
+        1 \rightarrow E[X = p(x=1 = \frac{1}{2}) \\
+        0
+    \end{cases}        
+    Y = 
+    \begin{cases}
+        1 \rightarrow E[X = p(x=1 = \frac{1}{2}) \\
+        0
+    \end{cases}        
+\end{align*}
+
+Una condizione di indipendenza di variabili aleatorie è la seguente:
+\[
+E[XY] = E[X]\cdot E[Y]    
+\]
+Questa condizione è possibile sfruttarla all'interno della dimostrazione:
+\begin{align*}
+    \begin{cases}
+        &Cov(X,Y) = E[XY] - E[X]\cdot E[Y]  = 0\\
+    \end{cases}
+\end{align*}
 
 \subsection*{Esercizio 4}
 Utilizzo una distribuzione geometrica:
 \begin{enumerate}
     \item La probabilità richiesta:
     \[
-    P(T = 3, X = 5) = \frac{1}{6}\left( \frac{5}{6}\right)^2 = 0.11   
+        P(T = 3, X = 5) = \frac{1}{6}\left( \frac{4}{6}\right)^2 = \frac{2}{27}  
     \]
     \item La distribuzione: 
     \begin{align*}
-        &P(T=1, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^0 = 0.16 \\
-        &P(T=2, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^1 = 0.13 \\
-        &P(T=3, X=5) = \frac{1}{6} \left(\frac{5}{6}\right)^2 = 0.14 \\
+        &P(T=k) = \frac{2}{6} \left(\frac{4}{6}\right)^{k-1} \\
     \end{align*}
     \item La distribuzione di X:
     \[
-        P(T = 3, X=1,2,3,4) = 0.11
+        P(X=i) = \frac{1}{6}
     \]
-    \item Dal punto 2 del problema si nota come la probabilità che si verifichi un successo dipende dal numero di lanci effettuati.
-    Quindi le due variabili sono dipendenti. 
+    \item Se gli eventi sono indipendenti, la congiunta deve essere uguale al prodotto delle marginali:
+    \begin{align*}
+        P(T=3, X=5) = P(T = 3) \cdot P(X = 5) = \left(\frac{4}{6}\right)^2 \frac{2}{6} \cdot \frac{1}{6} = \frac{2}{81} \neq \frac{2}{27} \quad \text{punto 1} 
+    \end{align*} 
 \end{enumerate}
+
 \subsection*{Esercizio 5}
 Utilizzo 6 variabili aleatorie, \(X_i\) con \(i = 1,2,3\dots, 6\) per rappresentare il lancio i-esimo:
 \begin{align*}
@@ -64,7 +118,7 @@ Utilizzo 6 variabili aleatorie, \(X_i\) con \(i = 1,2,3\dots, 6\) per rappresent
 \end{align*}
 
 Essendo ogni lancio indipendente uso la variabile geometrica 
-\subsection*{Esercizio 6}
+\subsection*{Esercizio 6: \underline{Non so se è giusto}}
 
 \begin{align}
     &E[X] = \sum_{j=2}^{n+n}(\sum_{i=1}^{n} f(i) \cdot \sum_{i=1}^{n} g(i)) \\
