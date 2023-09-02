@@ -22,17 +22,6 @@
 
 \subsection*{Esercizio 1}
 
-\begin{enumerate}
-    \item La distribuzione del tempo di rottura del circuito in serie è dato dal componente che si rompe per primo:
-    \[
-    T_{ser} = min(T_1,\dots,T_k)    
-    \]
-    \item La distribuzione del tempo di rottura del circuito è dato dalla somma di tutti i componenti:
-    \[
-    T_{par} = \sum_{i}^{k}T_i    
-    \]
-\end{enumerate}
-
 \subsection*{Esercizio 2}
 Assumendo che su una popolazione di cento persone, in media \(\lambda = 2\), sono mancini, per calcolare la probabilità che almeno 3 siano mancini:
 
@@ -60,13 +49,13 @@ La funzione di massa di probabilità congiunta:
 Modello le due probabilità in questo modo:
 \begin{itemize}
     \item \(P(Y,y|X = y+z) = \binom{y+z}{y}\cdot p^y \cdot (1-p)^{y-z} \) : numero di modi possibili di scegliere y mail dalle y+z in arrivo per le rispettive probabilità
-    \item \(P(X = y+z) = \frac{\lambda^{y+z}}{(y+z)!} e^{\lambda}\)
+    \item \(P(X = y+z) = \frac{\lambda^{y+z}}{(y+z)!} e^{-\lambda}\)
 \end{itemize}
 
 Sostituendo:
 \begin{align*}
     &P(Y=y, X = y+z) = P(Y=y|X = y+z)\cdot P(X) = \\
-    &\binom{y+z}{y}\cdot p^y \cdot (1-p)^{y-z} \cdot \frac{\lambda^{y+z}}{(y+z)!} e^{\lambda} = \\
+    &\binom{y+z}{y}\cdot p^y \cdot (1-p)^{y-z} \cdot \frac{\lambda^{y+z}}{(y+z)!} e^{-\lambda} = \\
     &\frac{(y+z)!}{y!z!}p^y(1-p)^z \cdot \frac{\lambda^y \lambda^z}{(y+z)!} e^{\lambda p (1-p)} = \\
     &\frac{(\lambda p)^y}{y!}e^{-\lambda p} \cdot \frac{(\lambda (1-p))^z}{z!}e^{-\lambda (1-p)} \\        
 \end{align*}
@@ -96,26 +85,68 @@ Scrivendo le variabili in questo modo:
 
 Modellando come l'esercizio 3 si risolve in modo analogo
 
+\newpage
 \subsection*{Esercizio 5}
-Il processo in questione può essere descritto da una variabile geometrica, dove non teniamo conto della la probabilità 
-che il primo successo (o evento in generale) richieda l'esecuzione di k prove indipendenti, bensi che il primo fallimento richieda l'esecuzione
-di k prove indipendenti. Nel processo in questione però si tratta del lancio della moneta, quindi la probabilità di successo e di fallimento,
-sono analoghe, quindi la distribuzione rimane la medesima:
-\begin{enumerate}
-    \item La distribuzione:
-    \[
-    P(X = k) = p(1-p)^k    
-    \]
-    \item Il valore atteso:
-    \[
-    E[X] = \frac{1}{p} = 2    
-    \]
-    \item La varianza:
-    \[
-    Var(X) = \frac{q}{p^2} = 6     
-    \]
-\end{enumerate}
+Modellando come segue:
+\begin{align*}
+    &X = \text{numero consecutivo di risultati al k-esimo lancio}\\
+    &p = \text{numero di teste consecutive} \\
+    &1-p = \text{numero di croci consecutive} \\   
+\end{align*}
+Essendo eventi disgiunti, la distribuzione si può modellare come segue:
+\[
+P(X=k) = p^k\cdot (1-p) + (1-p)^k \cdot p    
+\]
 
+Il valore atteso:
+\begin{align*}
+    &E[X] = \sum_{i=0}^{\infty}i\cdot p^i(1-p)+\sum_{i=0}^{\infty}i(1-p)^ip = \\
+    &(1-p)\sum_{i=0}^{\infty}ip^{i+1-1}+\sum_{i=0}^{\infty}i(1-p)^{i-1+1} = \\
+    &(1-p)p\sum_{i=0}^{\infty}\frac{d}{dp}p^i + p(1-p)\sum_{i=0}^{\infty}\frac{d}{dp}(-(1-p^i)) = \\
+    &(1-p)p\frac{d}{dp}\left(\frac{1}{1-p}\right) + p(1-p)\cdot\frac{d}{dp}\left(-\sum_{i=0}^{\infty}(1-p)^i\right) = \\
+    &\frac{(1-p)}{(1-p)^2}p+\frac{p(1-p)}{p} = \frac{p}{1-p} + \frac{1-p}{p}
+\end{align*}
+
+la Varianza:
+\begin{align*}
+    &Var(X) = E[X^2]-E[X]^2 = \\
+    &\text{dove:} \\
+    &E[X^2] = \sum_{i=0}^{\infty}i^2p^i(1-p)+ \sum_{i=0}^{\infty}i^2(1-p)^ip = \\
+    &(1-p)p\frac{d}{dp}\left(\sum_{i=0}^{\infty}ip^i\right) + p(1-p)\frac{d}{dp}\left(-\sum_{i=0}^{\infty}i(1-p)^i\right) = \\
+    &(1-p)p\frac{p}{(1-p)^2}+p(1-p)\frac{d}{dp}\left(-\frac{(1-p)}{p^2}\right) = \\
+    &\frac{p^2}{1-p}+\frac{(1-p)(2-p)}{p^2} \\
+    &\text{Quindi:} \\
+    &Var(X) = \frac{p^2}{1-p}+\frac{(1-p)(2-p)}{p^2} - \left(\frac{2p^2+1-2p}{(1-p)p}\right)^2
+\end{align*}
+
+\newpage
 \subsection*{Esercizio 6}
+Utilizzando la disuguaglianza di Chebyshev:
+\begin{align*}
+    \begin{cases}
+        &P(|X-\mu| < k\sigma) \ge 1-\frac{1}{k^2} \\
+        &P(|\frac{S_n}{n}-p|< \delta) \ge 0.95 \\
+    \end{cases}
+\end{align*}
 
+Mettendo a confronto si ha:
+\begin{align*}
+    \begin{cases}
+        &X = \frac{S_n}{n} \\
+        &\mu = p \\
+        &k\sigma = \delta \implies k = \frac{\delta}{\sqrt[2]{\frac{p(1-p)}{n}}} \\
+        &Var(X) = Var(\frac{S_n}{n}) = \frac{1}{n^2}Var(S_n) = \frac{np(1-p)}{n^2} \quad \text{Essendo X una binomiale} \\
+        &Dev(X) = \sqrt[2]{\frac{p(1-p)}{n}} = \sigma \\
+    \end{cases}
+\end{align*}
+
+Devo trovare il numero di lanci \(n\) affinché il tutto sia maggiore di 0.95, quindi:
+\begin{align*}
+    &1-\frac{1}{k^2} \ge 0.95 \\
+    &0.05 \ge \frac{1}{k^2} \\
+    &k^2 \ge \sqrt{\frac{1}{0.05}} = \sqrt{20} \\
+    &\text{Sostituisco l'espressione di k trovata prima} \\
+    &\frac{\delta}{\sqrt{\frac{p(1-p)}{n}}} \ge \sqrt{20} \\
+    &n\ge \frac{20\cdot p(1-p)}{\delta^2}
+\end{align*}
 \end{document}

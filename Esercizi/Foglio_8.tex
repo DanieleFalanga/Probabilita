@@ -25,17 +25,17 @@
 \begin{enumerate}
     \item Per il primo punto:
     \[
-    P(C) = \underbrace{\frac{1}{2}}_{\text{Collegamento diretto}} + \underbrace{\frac{1}{2} \cdot \frac{1}{2}}_{\text{Andando a B e poi a C da B}}    
+    P(C) = \underbrace{P(AC)}_{\text{Collegamento diretto}} + \underbrace{P(AB)P(CB)}_{\text{Andando a B e poi a C da B}}    
     \]
     Essendo i collegamenti per C, passando per B, indipendenti l'un l'altro, si molitiplicano le probabilità
-    \item PEr il secondo, se si elimina la possibilitò di andare a C, per arrivare a B ci sta una possibilità di \(\frac{1}{2}\)
+    \item Per il secondo, se si elimina la possibilitò di andare a C, per arrivare a B ci sta una possibilità di \(\frac{1}{2}\)
 \end{enumerate}
 
 \newpage
 \subsection*{Esercizio 2}
 Il calcolo della distribuzione segue questo schema, dette \(n,u,d\), il numero di pick di batterie, nuove, usate e difettose:
 \[
-P(n,u) = \frac{\binom{3}{n} \binom{2}{u} \binom{2}{d}}{\binom{7}{3}}    
+P(X=n,Y=u) = \frac{\binom{3}{n} \binom{2}{u} \binom{2}{d}}{\binom{7}{3}}    \quad \text{Dove: } n+u+d = 3
 \]
 La distribuzione congiunta e le relative marginali:
 \begin{equation*}
@@ -68,23 +68,6 @@ P(F) = P(3,0) + P(2,1) + P(1,2) = \frac{10}{35}
 \]
 \subsection*{Esercizio 3}
 
-\begin{itemize}
-    \item A = prodotto buono
-    \item B = prodotto non funzionante
-    \item E = controllato
-    \item F = non controllato
-\end{itemize}
-
-\begin{enumerate}
-    \item Primo punto:
-    \begin{align*}
-        &P(B|E) = \frac{P(E)P(E|B)}{P(B)} = \frac{P(E)P(E)}{P(B)} = \frac{\alpha^2}{p}
-    \end{align*}
-    \item Secondo punto:
-    \begin{align*}
-        &P(B|F) = \frac{P(F)P(F)}{P(B)} = \frac{(1-\alpha)^2}{p}
-    \end{align*}
-\end{enumerate}
 \subsection*{Esercizio 4}
 
 La distribuzione segue una multinomiale:
@@ -92,13 +75,13 @@ La distribuzione segue una multinomiale:
 \begin{equation*}
     \renewcommand{\arraystretch}{1.5}
     \begin{array}{c|ccc|c}
-          & 0 & 1 & 2 & m\\
+          & 0 & 1 & 2 & Y\\
     \hline
     0 & \frac{1}{36} & \frac{6}{36} & \frac{9}{36} & \frac{16}{36}\\
     1 & \frac{4}{36} & \frac{12}{36} & 0 & \frac{16}{36} \\
     2 & \frac{4}{36} & 0 & 0  & \frac{4}{36}\\ 
     \hline
-    m & \frac{9}{36} & \frac{18}{36} & \frac{9}{36} & 1 
+    X & \frac{9}{36} & \frac{18}{36} & \frac{9}{36} & 1 
     \end{array}
 \end{equation*}
 
