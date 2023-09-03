@@ -67,7 +67,68 @@ Per il punto 3 faccio la somma delle probabilità:
 P(F) = P(3,0) + P(2,1) + P(1,2) = \frac{10}{35}    
 \]
 \subsection*{Esercizio 3}
+\begin{align*}
+    \begin{cases}
+        &X = \text{num. comp sottoposti al controllo} \\
+        &Y = \text{num. comp non funzionanti} \\
+        &Z = \text{num. comp scartati dopo il controllo} \\
+    \end{cases}
+\end{align*}
 
+Entrambe le 3 variabili possono essere modellate come una distribuzione binomiale per cui:
+\begin{align*}
+    &X = bin(n,\alpha) \\
+    &X = bin(n,p) \\
+    &X = bin(n,?) \\
+\end{align*}
+
+Avendo tutte una distribuzione binomiale:
+\begin{align*}
+    &X_i \rightarrow
+    \begin{cases}
+        1 \quad \text{se componente i-esimo è sottoposto al controllo} \\
+        0 \quad \text{altrimenti}
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    &Y_i \rightarrow
+    \begin{cases}
+        1 \quad \text{se componente i-esimo è è difettoso} \\
+        0 \quad \text{altrimenti}
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    &Z_i \rightarrow
+    \begin{cases}
+        1 \quad \text{se componente i-esimo è scartato dopo il controllo} \\
+        0 \quad \text{altrimenti}
+    \end{cases}
+\end{align*}
+
+Dobbiamo calcolare ora:
+\begin{align*}
+    &P(Z_i = 1) = P(Z_i = 1, Y_i = 1) = \\
+    &P(Z_i = 1, Y_i = 1 | X_i = 1) + \underbrace{P(Z_i = 1, Y_i = 1 | X_i=0)}_{0} = \\
+    &P(Z_i = 1, X_i = 1 | Y_i = 1)\cdot P(X_i = 1) = \\
+    &P(Z_i = 1 | X_i = 1 \cap Y_i = 1)\cdot P(Y_i = 1) \cdot P(X_i = 1 | Y_i = 1) = 1\cdot p \cdot \alpha
+\end{align*}
+
+Avendo calcolato la probabilità che un componente singolo sugli n complessivi sia scartato posso affermare che:
+\[
+Z = bin(n,p\alpha)     
+\]
+\[
+P(Z = k) = \binom{n}{k}\cdot (\alpha p)^k \cdot (1-\alpha p)^{n-k} \quad k = 0,1,\dots, n   
+\]
+
+{\bf{Il punto 2:}}  \newline
+K scartati, n-k sono i componenti messi in commercio, e di questi, i sono i difettosi.
+La variabile aleatoria V indica i componenti difettosi tra gli n-k componenti messi in commercio:
+\[
+P(V = i) = \binom{n-k}{i} p^i \cdot (1-p)^{n-k-i}    
+\]
 \subsection*{Esercizio 4}
 
 La distribuzione segue una multinomiale:
@@ -99,7 +160,24 @@ Il calcolo della varianza:
 \end{align*}
     
 \subsection*{Esercizio 5}
+Calcolo le distribuzioni marginali:
+\begin{align*}
+    &P(Z=0) = P(X=0,Y,0)+P(X=0,Y,1)+P(X=1,Y,1) = p^2+(1-p)^2+p(1-p) \\
+    &P(Z = 1) = P(X=1,Y,0) = p(1-p) \\
+    &P(W = 0) = P(X=1,Y,1) = p^2 \\
+    &P(W = 1) = P(X=0,Y,0)+P(X=0,Y,1)+P(X=1,Y,0) = (1-p)^2+2p(1-p) \\
+\end{align*}
 
+Le congiunte:
+\begin{align*}
+    &P(X = 0, Y = 0) = p^2 \\
+    &P(X = 1, Y = 0) = 0 \\
+    &P(X = 0, Y = 1) = (1-p)^2+(1-p)p \\
+    &P(X = 1, Y = 1) = p(1-p) \\
+\end{align*}
+
+Eseguendo il prodotto delle marginali ed uguagliando il prodotto alle rispettive congiunte, si nota che 
+le variabili sono indipendenti quando \(p = 0\)
 \subsection*{Esercizio 6}
 
 \end{document}
