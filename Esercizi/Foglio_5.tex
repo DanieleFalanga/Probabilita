@@ -53,9 +53,41 @@ Dati gli eventi:
 \subsection*{Esercizio 2}
 
 
-
+\newpage
 \subsection*{Esercizio 3}
+Il problema può essere modellato come una serie di Bernoulliane di probabilità di successo \(p\). 
+Considerando ogni esperimento come una variabile aleatoria a se stante \(X_1,X_2,\dots X_n\).
+\begin{align*}
+    X_i =
+    \begin{cases}
+        &1 \quad \text{se la prova i-esima ha successo} \\
+        &0 \quad \text{altrimenti}
+    \end{cases}
+\end{align*}
 
+In maniera compatta la singola distribuzione assume la forma:
+\[
+P(X_i = k) = p^k(1-p)^{1-k} \quad \text{k = 0,1}    
+\]
+
+Sfruttando l'indipendenza, la distribuzione assume la forma:
+\begin{align*}
+    &f(x_1,x_2,\dots, x_n | p) = P(X_1 = x_1, X_2 = x_2, \dots, X_n = x_n) \\
+    &= p^{x_1}(1-p)^{1-x_1}\dots p^{x_n}(1-p)^{1-x_n} \\
+    &= p^{\sum_{i}x_i}(1-p)^{n-\sum_{i}x_i}\\
+\end{align*}
+
+Per determinare p che massimizzi si prendono i logaritmi:
+\begin{align*}
+    \log f(x_1,x_2,\dots, x_n | p) = \sum_{i = 1}^{n}x_i \log p + \left(n-\sum_{i=1}^{n}\right) \log(1-p)
+\end{align*}
+
+Derivando rispetto a p ed uguagliando a 0 l'espressione si ottiene:
+\begin{align*}
+    &\frac{1}{p}\sum_{i = 1}^{n}x_i = \frac{1}{1-p}\left(n-\sum_{i=1}^{n}\right) \\
+    &\text{da cui} \\
+    &p = \frac{1}{n}\sum_{i=1}^{n}x_i \quad \text{Stimatore di massima verosimiglianza cercato}
+\end{align*}
 
 \subsection*{Esercizio 4}
 \begin{enumerate}

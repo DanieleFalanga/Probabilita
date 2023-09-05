@@ -25,7 +25,7 @@
 \begin{enumerate}
     \item Per il primo punto:
     \[
-    P(C) = \underbrace{P(AC)}_{\text{Collegamento diretto}} + \underbrace{P(AB)P(CB)}_{\text{Andando a B e poi a C da B}}    
+    P(C) = \underbrace{P(AC)}_{\text{Collegamento diretto}} + \underbrace{P(AB)P(BC)}_{\text{Andando a B e poi a C da B}}    
     \]
     Essendo i collegamenti per C, passando per B, indipendenti l'un l'altro, si molitiplicano le probabilità
     \item Per il secondo, se si elimina la possibilitò di andare a C, per arrivare a B ci sta una possibilità di \(\frac{1}{2}\)
@@ -178,6 +178,61 @@ Le congiunte:
 
 Eseguendo il prodotto delle marginali ed uguagliando il prodotto alle rispettive congiunte, si nota che 
 le variabili sono indipendenti quando \(p = 0\)
+\newpage
 \subsection*{Esercizio 6}
+B dichiara 1 con probabilità p, e 2 con probabilità 1-p. 
+\begin{align*}
+    X =
+    \begin{cases}
+        &1 \quad \text{se B indovina la scelta i di A} \\
+        &0 altrimenti    
+    \end{cases}
+\end{align*}
+
+B- scelta i-esima di B con:
+\begin{align*}
+    \begin{cases}
+        &P(B = 1) = p \\
+        &P(B = 2) = 1-p
+    \end{cases}
+\end{align*}
+
+A- scrittura i-esimo numero su foglio \(i = 1,2\)
+
+\begin{enumerate}
+    \item Sapendo che \(A = 1\) (A ha scritto 1), si hanno due scenari possibili:
+    il primo, B indovina che A ha scritto 1 e quindi guadagna 1 euro. \newline
+    Il secondo che B non indovina e perde 0.75. \newline
+    Il guadagno medio:
+    \begin{align*}
+        E[B_1] = 1P(B=1|A=1)-0.75P(B=2|A=1) = 1p-0.75(1-p) = 1.75p-0.75 \\
+    \end{align*}
+    \item Sapendo che \(A = 2\) (A ha scritto 2).
+    Primo caso: B indovina e guadagna un euro
+    Secondo caso: B sbaglia e perde 0.75
+    \begin{align*}
+        E[B_2] = 1P(B=2|A=2)-0.75P(B=1|A=2) = 2(1-p)-0.75p = 2-2.75p \\
+    \end{align*}
+    \item Risolvendo la seguente disequazione:
+    \begin{align*}
+        &1.75p-0.75 \ge 2-2.75p =\\
+        &p \ge \frac{2.75}{4.50}
+    \end{align*}
+    Quindi si ha che la prima disequazione è maggiore della seconda se \(p \ge 0.61\) e viceversa per la seconda. 
+    Quindi, la seconda disequazione viene massimizzata se \(p = 0.61\) mentre nel secondo caso, la prima disequazione è piu piccola,
+    e viene massimizzata sempre quando \(p = 0.61\).
+    \item La perdita media nel primo caso:
+    \begin{align*}
+        &E[A_1] = 0.75P(A_2|B_1) -1P(A_1|B_1) = 0.75-1.75q \\
+    \end{align*}
+    \item La perdita media nel secondo caso:
+    \begin{align*}
+        &E[A_2]= 0.75P(A_1|B_2) -2P(A_2|B_2) = 2.75q-2
+    \end{align*}
+
+    Risolvendo in modo analogo a prima trovo che la q cercata è proprio uguale a \(q = 0.61\)
+    cioé lo stesso valore che massimizza il minimo dei guadagni di B, si può affermare che in tutti
+    e due i casi il gioco è equilibrato. 
+\end{enumerate}
 
 \end{document}
