@@ -102,11 +102,14 @@ Il testo fornisce i seguenti parametri:
         &\binom{N}{n-k} \rightarrow \text{numero di palline nere su n-k estrazioni}
     \end{align*}
     Al secondo membro le estrazioni sono unite
-    \item La probabilità richiesta può essere calcolata tramite distribuzione binomiale.
-    Denoto con T il numero di teste dei primi \(n\) lanci
-    \[
-    P(X=T) = \binom{n}{T} \left( \frac{1}{2} \right)^T \left( \frac{1}{2} \right)^{n-T}  
-    \]       
+    \item Divido in due distribuzioni:
+    La prima che calcola le teste nei primi n lanci e la seconda che calcola le teste nei secondi
+    n lanci. 
+    \begin{align*}
+        &P(X_T = i) = \binom{n}{i} (\frac{1}{2})^i(\frac{1}{2})^{n-i}
+        &P(X_C = i) = \binom{n}{i} (\frac{1}{2})^i(\frac{1}{2})^{n-i}
+    \end{align*}
+          
 \end{enumerate}
 
 \subsection*{Esercizio 5}
@@ -114,18 +117,27 @@ Denotando con \(p_1 = 1/2,p_2 = 0,p_3 = 1\) le probabilità che esca testa testa
 \begin{enumerate}
     \item Avendo 6 casi totale e 3 teste:
     \[
-    P(T) = \frac{6}{3} = \frac{1}{2}    
+    P(T) = \frac{3}{6} = \frac{1}{2}    
     \]
-    \item Al secondo lancio:
+    \item \(B\)- ha reso T; \(A\)-Faccia opposta è C; \(C_i\) estrazione moneta i-esima;
     \[
-    P(C) = \frac{1}{4}    
-    \]
-    \item al terzo lancio:
-    \[
-    P(T) = \frac{3}{4}    
+    P(A|B) = \frac{P(A\cup B)}{P(B)} = \frac{P(A \cup B | C_1)p(C_1) P(A \cup B | C_3)p(C_3) }{P(B)} = \frac{1/3}{1/2}    
     \]
 \end{enumerate}
 \subsection*{Esercizio 6}
 
+Per semplificare la notazione, denotiamo con A e B i due sottoinsiemi scelti a caso da un insieme di cardinalità n. Ogni sottoinsieme può essere rappresentato come un vettore binario di lunghezza n, dove 1 rappresenta la presenza di un elemento e 0 rappresenta l'assenza.
+
+Ad esempio, se abbiamo un insieme S con tre elementi {1, 2, 3}, allora il sottoinsieme {1, 3} può essere rappresentato come il vettore binario 101, mentre il sottoinsieme {2, 3} può essere rappresentato come il vettore binario 011.
+
+Ora, per calcolare la probabilità che il primo sottoinsieme sia incluso nel secondo, dobbiamo considerare tutte le combinazioni dei vettori binari di lunghezza n e calcolare la probabilità che il primo sia incluso nel secondo.
+
+Per ogni vettore binario di lunghezza n, ci sono \(2^n\) possibilità. Tuttavia, solo una di queste rappresenta il caso in cui il primo sottoinsieme è incluso completamente nel secondo. Ad esempio, se il primo sottoinsieme è rappresentato dal vettore binario 101, allora il secondo sottoinsieme dovrebbe essere rappresentato da un vettore binario 111 (tutti gli 1 nel secondo vettore corrispondono agli 1 nel primo vettore).
+
+Quindi, la probabilità che il primo sottoinsieme scelto sia incluso completamente nel secondo è 1 su \(2^n\).
+
+Pertanto, la probabilità richiesta è:
+
+P(primo sottoinsieme incluso nel secondo) = \(1 / 2^n\)
 
 \end{document}
