@@ -77,12 +77,12 @@ La vittoria dei tre cavalli sono 3 variabili aleatorie congiunte:
 
 Se volessi calcolare la probabilità di vittoria dello stesso cavallo:
 \begin{align*}
-    P(X=3,Y=3,Z=3) = \binom{3}{3,3,3}\left(0.3\right)^3\left(0.5\right)^3\left(0.2\right)^3
+    P(X=3,Y=3,Z=3) = (0.3)^3 + (0.5)^3 + (0.2)^3
 \end{align*}
 
 \subsubsection*{Punto b}
 \[
-    P(X=1,Y=1,Z=1) = \binom{3}{1,1,1}\left(\frac{1}{3}\right) \left(0.5\right) \left(0.2\right) =    
+    P(X=1,Y=1,Z=1) = \binom{3}{1,1,1}(0.3) (0.5) (0.2) =    
 \]
 \subsection*{Esercizio 4}
 \subsubsection*{Punto a}
@@ -92,7 +92,7 @@ P(X=i) = \binom{n}{i} (p)^i (1-p)^{n-i}
 \]
 X = Colpisco il bersaglio una volta
 \[
-P(X=1) = \binom{3}{1} \left(\frac{1}{3}\right)^1 \left(\frac{2}{3}\right)^2 = \frac{4}{9}   
+P(X \ge 1) = 1 - P(X=0) = 1 - \binom{3}{0} (\frac{1}{3})^0 (\frac{2}{3})^3   
 \]  
 
 \subsubsection*{Punto b}
